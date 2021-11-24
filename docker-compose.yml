@@ -15,4 +15,4 @@ services:
       context: ./
       dockerfile: ./grpc-backend/Dockerfile
     ports:
-      - 8081:5000
+      - 8090:8085
