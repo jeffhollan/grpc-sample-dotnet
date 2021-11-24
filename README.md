@@ -3,7 +3,6 @@
 The following is a sample of a gRPC client calling another container running gRPC server to execute a `SayHello` call.  The solution runs on Azure Container Apps.
 
 ## Deploy the sample
-
 ### Azure CLI
 
 ```bash
@@ -61,3 +60,7 @@ az containerapp create \
   --ingress 'external' \
   --query configuration.ingress.fqdn
 ```
+
+### Try the solution
+
+After deploying, get the FQDN of the https-frontend and call it and hit the `/hello` endpoint. It will call the gRPC backend (via gRPC) and return a message to the client.
