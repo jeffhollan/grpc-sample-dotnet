@@ -40,7 +40,7 @@ az containerapp create \
   --name grpc-backend \
   --resource-group $RESOURCE_GROUP \
   --environment $ACA_ENVIRONMENT \
-  --image ghcr.io/jeffhollan/grpc-sample-dotnet/grpc-backend:v0.1 \
+  --image ghcr.io/jeffhollan/grpc-sample-dotnet/grpc-backend:main \
   --ingress 'internal' \
   --target-port 8085 \
   --transport 'http2'
@@ -48,15 +48,15 @@ az containerapp create \
 GRPC_SERVER_ADDRESS=$(az containerapp show \
   --resource-group $RESOURCE_GROUP \
   --name grpc-backend \
-  --query configuration.ingress.fqdn)
+  --query configuration.ingress.fqdn -otsv)
 
 # Create the HTTPS frontend gRPC client container
 az containerapp create \
   --name https-frontend \
   --resource-group $RESOURCE_GROUP \
   --environment $ACA_ENVIRONMENT \
-  --image ghcr.io/jeffhollan/grpc-sample-dotnet/https-frontend:v0.1 \
-  --environment-variables GRPC_SERVER_ADDRESS=$GRPC_SERVER_ADDRESS \
+  --image ghcr.io/jeffhollan/grpc-sample-dotnet/https-frontend:main \
+  --environment-variables GRPC_SERVER_ADDRESS=https://$GRPC_SERVER_ADDRESS \
   --target-port 80 \
   --ingress 'external' \
   --query configuration.ingress.fqdn

@@ -21,8 +21,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
-
 app.MapGet("/hello", async (Greeter.GreeterClient client) =>
 {
     var reply = await client.SayHelloAsync(
