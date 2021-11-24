@@ -2,6 +2,7 @@ version: '3'
 services:
   frontend:
     image: ghcr.io/jeffhollan/grpc-sample-dotnet/https-frontend:${TAG}
+    platform: linux/amd64
     build:
       context: ./
       dockerfile: ./https-frontend/Dockerfile
@@ -11,6 +12,7 @@ services:
       - GRPC_SERVER_ADDRESS
   backend:
     image: ghcr.io/jeffhollan/grpc-sample-dotnet/grpc-backend:${TAG}
+    platform: linux/amd64
     build:
       context: ./
       dockerfile: ./grpc-backend/Dockerfile
