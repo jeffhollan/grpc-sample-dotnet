@@ -1,8 +1,13 @@
 # gRPC Sample : .NET 6
 
+### View this sample in other languages
+| [C#](https://github.com/jeffhollan/grpc-sample-dotnet) | [Go](https://github.com/jeffhollan/grpc-sample-go) | [Java](https://github.com/jeffhollan/grpc-sample-java) | [JavaScript](https://github.com/jeffhollan/grpc-sample-node) | [Python](https://github.com/jeffhollan/grpc-sample-python) |
+| ---  | --- | --- | --- | --- |
+
 The following is a sample of a gRPC client calling another container running gRPC server to execute a `SayHello` call.  The solution runs on Azure Container Apps.
 
 ## Deploy the sample
+
 ### Azure CLI
 
 ```bash
